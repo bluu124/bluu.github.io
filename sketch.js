@@ -1,202 +1,60 @@
-//2016 08 06
-//en fabrica de medios
-//pagina web interactiva
-//funciona con p5.js
-//mi nombre es juan
+//mi primer intento de space invader usando emojis y p5.js por Juan Pablo Polanco
+//en base a:  https://www.openprocessing.org/sketch/780757
+let aliens = [];
+let aliensNum = 55;
 
-//variables
-//variables son lugares en el computador
-//donde podemos almacenar datos
-
-//para crear una variable, hay que DECLARARLA
-//en javascript se hace asi
-//voy a declarar una variable que se llama diametro
-var diametro;
-
-//la declaracion se hace SOLO UNA VEZ
-
-//para darle un valor, se hace una ASIGNACION
-//la asignacion se hace en javascript con el signo =
-diametro = 100;
-
-//existen dos tipos de variables
-//las locales y las globales
-//la diferencia radica en donde son declaradas
-
-//las GLOBALES, FUERA de las FUNCIONES
-//las LOCALES, DENTRO de las funciones
-
-//las GLOBALES, pueden ser usadas en todas partesr
-//las LOCALES, solo dentro de la funcion donde viven
-
-//las funciones son para ejecutar acciones
-//tambien tienen que ser declaradas
-//asi se declara una funcion en javascript
-function miFuncionBacan() {
-  //aqui va lo que hace la funcion
-}
-
-//setup() es la configuracion inicial
-//se ejecuta una vez, al principio
-//de los tiempos
 function setup() {
-  //aqui va lo que hace setup()
+  //crea un lienzo para dibujar el cual se ajustara con windowResized
+  var canvas = createCanvas(windowWidth, windowHeight);
+  // mueve el canvas dentro de <div id="sketch-holder">.
+  canvas.style('z-index', '-1');
+  canvas.position(0, 0);
+  //canvas.parent('sketch-holder');
 
-  //creamos un lienzo
-  //createCanvas(dimHor, dimVer);
-  //medido en px
-  createCanvas(windowWidth, windowHeight);
-
-  //los colores en p5.js
-  //los valores van entre 0 y 255
-  //1 -> grayscale, 0 es negro, 255 es blanco
-  //2 -> grayscale + alpha, 0 es transp, 255 es solido
-  //3 -> RGB, red, green, blue
-  //4 -> RGB + alpha
-
-  //pintar el fondo verde
-  //background(color);
-  background(0, 255, 0);
-
-createCanvas(100, 100, WEBGL);
-  //declaracion de variable local
-  var hola;
-
+  for (let i = 0; i < aliensNum; i++) {
+    aliens.push(new Alien());
+  }
+  textAlign(CENTER, CENTER);
+  noCursor();
 }
 
-//draw() se ejecuta despues de setup()
-//se ejecuta 60 veces por segundo
 function draw() {
+  background(255);
 
-  background(0, 255, 0);
+  for (let i = 0; i < aliensNum; i++) {
+    aliens[i].display();
+    aliens[i].move();
+  }
 
-
-
-  //dibujar una elipse
-  //ellipse(posX, posY, width, height);
-  ellipse(mouseX, mouseY, diametro, diametro);
-
-  //asignacion a la variable diametro
-  diametro = diametro + 1;
-
+  textSize(130);
+  text("🛸", mouseX, mouseY);
 }
 
-//escribir nuestra primera funcion
-//funcion para definir el estilo
-function estilo() {
-  //definir estilo de la elipse
-  //definir ancho del borde
-  //strokeWeight(px);
-  //si queremos que no dibuje el borde
-  //noStroke();
-  strokeWeight(10);
+function Alien() {
+  this.x = random(width);
+  this.s = random(30, 200);
+  this.xs = -1 * random(2, 15);
+  this.y = random(height);
+  this.emoji = "👾";
 
-  //definir el color del borde
-  //stroke(color);
-  stroke(0, 0, 255, 255/4);
+  this.display = function () {
+    stroke(0);
+    if (dist(mouseX, mouseY, this.x, this.y) < 100) {
+      this.emoji = "💖";
+    }
+    textSize(this.s);
+    text(this.emoji, this.x, this.y);
+  }
 
-  //definir el color del relleno
-  //fill(color);
-  fill(255, 0, 255, 255/2);
+  this.move = function () {
+    this.x += this.xs;
+    if (this.x < -this.s * 1.1) {
+      this.x = width + this.s * 1.1;
+      this.emoji = "👾";
+    }
+  }
 }
-
-function estilo(){
-//2016 08 06
-//en fabrica de medios
-//pagina web interactiva
-//funciona con p5.js
-//mi nombre es aaron
-
-//variables
-//variables son lugares en el computador
-//donde podemos almacenar datos
-
-//para crear una variable, hay que DECLARARLA
-//en javascript se hace asi
-//voy a declarar una variable que se llama diametro
-var diametro;
-
-//la declaracion se hace SOLO UNA VEZ
-
-//para darle un valor, se hace una ASIGNACION
-//la asignacion se hace en javascript con el signo =
-diametro = 100;
-
-//existen dos tipos de variables
-//las locales y las globales
-//la diferencia radica en donde son declaradas
-
-//las GLOBALES, FUERA de las FUNCIONES
-//las LOCALES, DENTRO de las funciones
-
-//las GLOBALES, pueden ser usadas en todas partesr
-//las LOCALES, solo dentro de la funcion donde viven
-
-//las funciones son para ejecutar acciones
-//tambien tienen que ser declaradas
-//asi se declara una funcion en javascript
-function miFuncionBacan() {
-  //aqui va lo que hace la funcion
-}
-
-//setup() es la configuracion inicial
-//se ejecuta una vez, al principio
-//de los tiempos
-function setup() {
-  //aqui va lo que hace setup()
-
-  //creamos un lienzo
-  //createCanvas(dimHor, dimVer);
-  //medido en px
-  createCanvas(windowWidth, windowHeight);
-
-  //los colores en p5.js
-  //los valores van entre 0 y 255
-  //1 -> grayscale, 0 es negro, 255 es blanco
-  //2 -> grayscale + alpha, 0 es transp, 255 es solido
-  //3 -> RGB, red, green, blue
-  //4 -> RGB + alpha
-
-  //pintar el fondo verde
-  //background(color);
-  background(0, 255, 0);
-
-  //declaracion de variable local
-  var hola;
-
-}
-
-//draw() se ejecuta despues de setup()
-//se ejecuta 60 veces por segundo
-function draw() {
-
-  background(0, 255, 0);
-
-
-
-  //dibujar una elipse
-  //ellipse(posX, posY, width, height);
-  ellipse(mouseX, mouseY, diametro, diametro);
-
-  //asignacion a la variable diametro
-  diametro = diametro + 1 ;
-
-}
-
-//escribir nuestra primera funcion
-//funcion para definir el estilo
-function estilo() {
-  strokeWeight(10);
-  stroke(0, 0, 255, 255/2);
-  fill(255, 0, 0, 255/2);
-}
-
-function muchasElipces (){
-for(var i = 0; i < 100; i++) {
-  noStroke();
-  fill(random(225), random(255),random(255),random(255) )
-
-  ellipse(random(width),random(height),50,50);
-}
-}
+//ajunta el tamaño del lienzo
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
