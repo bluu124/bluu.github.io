@@ -1,2 +1,2 @@
-# bluu124.github.io
-mi primer super pagina 
+# bluu.github.io
+mi primer super pagina :P

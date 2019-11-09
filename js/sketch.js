@@ -1,7 +1,7 @@
 //mi primer intento de space invader usando emojis y p5.js por Juan Pablo Polanco
 //en base a:  https://www.openprocessing.org/sketch/780757
 let aliens = [];
-let aliensNum = 55;
+let aliensNum = 60;
 
 function setup() {
   //crea un lienzo para dibujar el cual se ajustara con windowResized
@@ -26,13 +26,13 @@ function draw() {
     aliens[i].move();
   }
 
-  textSize(130);
-  text("🛸", mouseX, mouseY);
+  textSize(90);
+  text("🔥", mouseX, mouseY);
 }
 
 function Alien() {
   this.x = random(width);
-  this.s = random(30, 200);
+  this.s = random(30, 100);
   this.xs = -1 * random(2, 15);
   this.y = random(height);
   this.emoji = "👾";
@@ -40,7 +40,7 @@ function Alien() {
   this.display = function () {
     stroke(0);
     if (dist(mouseX, mouseY, this.x, this.y) < 100) {
-      this.emoji = "💖";
+      this.emoji = "🕊";
     }
     textSize(this.s);
     text(this.emoji, this.x, this.y);
