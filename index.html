@@ -3,45 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--p5js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
     <!--css-->
     <link rel="stylesheet" href="css/index.css">
     <!--titulo y robot txt-->
-    <title>🛸 BLUU 🛸</title>
-    <meta name="description" content="Programador Multimedia / Visualista / Chiptune / DJ" />
-
-
+    <title>🛸 Juan Pablo Polanco / BLUU 🛸</title>
+    <meta name="description" content="Programador Multimedia / Visualista / Chiptunes / DJ" />
 </head>
 
 <body>
     <main>
-        <div id="columna1"></div>
-        <section>
-            <div id="contenido">
-                <h1>Sobre mi:</h1>
-                <p>
-                    Me llamo Juan Pablo Polanco Reyes, también conocido en el medio artístico como BLUU.
-                    <br>
-                    Soy uno de los referentes del <a href="https://es.wikipedia.org/wiki/Chiptune">Chiptune</a> en
-                    latinoamérica, visualista con residencia artística en <a
-                        href="https://www.facebook.com/CasaRuido/">Casa Ruido</a>, DJ y cofundador de la <a
-                        href="https://www.instagram.com/oncesuperportable/">Once Super Portable</a>.
-                    <br>
-                    Fui egresado de administración de empresas con mención en marketing, que me permitió trabajar como community manager y planificador de medios en <a href="https://www.firmavb.cl/">FirmaVB</a>(2016-2018). Donde planifique e implementé planes comunicaciones a clientes, instituciones del gobierno e interna para la empresa.
-                    <br>
-                    Actualmente soy estudiante de Ingeniería en Informática, pero además de manera autodidacta me estoy dedicando a la programación creativa para desarrollar aplicaciones artísticas.
-                </p>
-            </div>
-        </section>
+        
     </main>
+    <canvas id="glcanvas" width="100vw" height="100vh"></canvas>
+    <footer>
+        <span>Animación desarrollada en <a href="https://cables.gl/p/5e33451a6163a31d0ffe18d0?s=dT8eOAumh97j69kC">Cables</a> </span> 
+    </footer>
 
+    <libs/>
+    <script type="text/javascript" src="js/patch.js" async></script>
+    <corelibs/>
 
-    <!--p5js-->
-    <script src="js/sketch.js"></script>
+    <script>
+        /**
+         * Mensajes de error con cables (autogenerado por cables).
+         * @param {string} errId - ID of the error, e.g. 'NO_WEBGL' or 'NO_WEBAUDIO'
+         *                         when the browser does not support the used APIs
+         * @param {string} errMsg - The error message
+         */
+        function showError(errId, errMsg) {
+            alert('Tenemos un problema: ' + errId + ', ' + errMsg);
+        }
+
+        function patchInitialized() {
+            // You can now access the patch object (CABLES.patch), register variable watchers and so on
+        }
+
+        function patchFinishedLoading() {
+            // The patch is ready now, all assets have been loaded
+        }
+
+        document.addEventListener('CABLES.jsLoaded', function(event) {
+            CABLES.patch = new CABLES.Patch({
+                patch: CABLES.exportedPatch,
+                prefixAssetPath: '',
+                glCanvasId: 'glcanvas',
+                glCanvasResizeToWindow: true,
+                onError: showError,
+                onPatchLoaded: patchInitialized,
+                onFinishedLoading: patchFinishedLoading,
+            });
+        });
+    </script>
 </body>
 
 </html>
