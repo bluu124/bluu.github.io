@@ -12,17 +12,27 @@
 </head>
 
 <body>
-    <main>
-        
-    </main>
     <canvas id="glcanvas" width="100vw" height="100vh"></canvas>
+    <main>
+        <p>¡Hola! Mi nombre es Juan Pablo Polanco Reyes, conocido bajo el alias de BLUU. Soy uno de los artistas
+            referente del chiptunes en Chile y estudiante de ingeniería en informática, con experiencia en el área de
+            marketing y publicidad en medios digitales.</p>
+        <br>
+            <p>He trabajado como visualista residente en <a href='https://www.facebook.com/CasaRuido/'>Casa Ruido</a>
+            (2017-2019) y fui Community Managers en <a href='https://www.firmavb.cl/'>FirmaVB</a> (2015-2018).
+            Actualmente junto a JxCapsula y Morffeiner organizamos el colectivo de chiptunes y tencho, <a
+                href='https://www.instagram.com/oncesuperportable/'>Once Super Portable</a>. </p>
+
+    </main>
+    
     <footer>
-        <span>Animación desarrollada en <a href="https://cables.gl/p/5e33451a6163a31d0ffe18d0?s=dT8eOAumh97j69kC">Cables</a> </span> 
+        <span>Animación desarrollada en <a
+                href="https://cables.gl/p/5e33451a6163a31d0ffe18d0?s=dT8eOAumh97j69kC">Cables</a> </span>
     </footer>
 
-    <libs/>
+    <libs />
     <script type="text/javascript" src="js/patch.js" async></script>
-    <corelibs/>
+    <corelibs />
 
     <script>
         /**
@@ -43,7 +53,7 @@
             // The patch is ready now, all assets have been loaded
         }
 
-        document.addEventListener('CABLES.jsLoaded', function(event) {
+        document.addEventListener('CABLES.jsLoaded', function (event) {
             CABLES.patch = new CABLES.Patch({
                 patch: CABLES.exportedPatch,
                 prefixAssetPath: '',
