@@ -1,32 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1"
+    />
     <!--css-->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css" />
     <!--titulo y robot txt-->
     <title>🛸 Juan Pablo Polanco / BLUU 🛸</title>
-    <meta name="description" content="Programador Multimedia / Visualista / Chiptunes / DJ" />
-</head>
+    <meta
+      name="description"
+      content="Programador Multimedia / Visualista / Chiptunes / DJ"
+    />
+  </head>
 
-<body>
+  <body>
     <canvas id="glcanvas" width="100vw" height="100vh"></canvas>
     <main>
-        <span>
-            <p>¡Hola! Mi nombre es Juan Pablo Polanco, conocido bajo el alias de BLUU
-                <br>
-                Soy un artista del chiptune, visualista y estudiante de informática.
-                <br>
-                Si quieres saber más de mi:</p>
-        </span>
-        <a class="boton" href="mailto:jpablo_polr@protonmail.com">Escríbeme👽💌</a>
+      <span>
+        <p>
+          ¡Hola! Mi nombre es Juan Pablo Polanco Reyes, conocido bajo el alias
+          de BLUU
+        </p>
+        <p>
+          Soy visualista, estudiante de informática y músico chileno dedicado
+          principalmente a explorar e investigar las técnicas del chiptune y el
+          glitch art.
+        </p>
+        <p>
+          Desde el 2015, he realizado distintas colaboraciones con artistas
+          nacionales e internacionales y he hecho presentaciones en eventos como
+          VJStgo, Café Con Cables, Arduino Day, Blip Blop Party, LatinChip,
+          Festival Recreo, entre muchos otros.
+        </p>
+        <p>
+          También, soy uno de los cofundadores del colectivo
+          <a href="https://www.instagram.com/oncesuperportable/"
+            >Once Super Portable</a
+          >
+          dedicado a la música con máquinas portables, consolas de bolsillo y a
+          tomar once (costumbre chilena similar a la hora del té).
+        </p>
+        <p>Si quieres hablar conmigo no duden en escribirme:</p>
+      </span>
+      <a class="boton" href="mailto:jpablo_polr@protonmail.com"
+        >Escríbeme👽💌</a
+      >
     </main>
 
     <footer>
-        <span>Animación desarrollada en <a
-                href="https://cables.gl/p/5e33451a6163a31d0ffe18d0?s=dT8eOAumh97j69kC">Cables</a> </span>
+      <span
+        >Animación desarrollada en
+        <a
+          href="https://cables.gl/p/5e33451a6163a31d0ffe18d0?s=dT8eOAumh97j69kC"
+          >Cables</a
+        >
+      </span>
     </footer>
 
     <libs />
@@ -34,36 +65,35 @@
     <corelibs />
 
     <script>
-        /**
-         * Mensajes de error con cables (autogenerado por cables).
-         * @param {string} errId - ID of the error, e.g. 'NO_WEBGL' or 'NO_WEBAUDIO'
-         *                         when the browser does not support the used APIs
-         * @param {string} errMsg - The error message
-         */
-        function showError(errId, errMsg) {
-            alert('Tenemos un problema: ' + errId + ', ' + errMsg);
-        }
+      /**
+       * Mensajes de error con cables (autogenerado por cables).
+       * @param {string} errId - ID of the error, e.g. 'NO_WEBGL' or 'NO_WEBAUDIO'
+       *                         when the browser does not support the used APIs
+       * @param {string} errMsg - The error message
+       */
+      function showError(errId, errMsg) {
+        alert("Tenemos un problema: " + errId + ", " + errMsg);
+      }
 
-        function patchInitialized() {
-            // You can now access the patch object (CABLES.patch), register variable watchers and so on
-        }
+      function patchInitialized() {
+        // You can now access the patch object (CABLES.patch), register variable watchers and so on
+      }
 
-        function patchFinishedLoading() {
-            // The patch is ready now, all assets have been loaded
-        }
+      function patchFinishedLoading() {
+        // The patch is ready now, all assets have been loaded
+      }
 
-        document.addEventListener('CABLES.jsLoaded', function (event) {
-            CABLES.patch = new CABLES.Patch({
-                patch: CABLES.exportedPatch,
-                prefixAssetPath: '',
-                glCanvasId: 'glcanvas',
-                glCanvasResizeToWindow: true,
-                onError: showError,
-                onPatchLoaded: patchInitialized,
-                onFinishedLoading: patchFinishedLoading,
-            });
+      document.addEventListener("CABLES.jsLoaded", function (event) {
+        CABLES.patch = new CABLES.Patch({
+          patch: CABLES.exportedPatch,
+          prefixAssetPath: "",
+          glCanvasId: "glcanvas",
+          glCanvasResizeToWindow: true,
+          onError: showError,
+          onPatchLoaded: patchInitialized,
+          onFinishedLoading: patchFinishedLoading,
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>
