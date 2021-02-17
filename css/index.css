@@ -46,6 +46,13 @@ p {
 a {
     color: magenta
 }
+
+a:hover {
+    color: black;
+    background-color: magenta;
+    cursor: pointer;
+  }
+
 main {
     top: 150px;
     width: 60%;
